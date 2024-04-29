@@ -13,3 +13,8 @@ Inicio: 1
 Fin: 8
 Realizados: 7
 -------
+NombreTaller: demostracion
+Inicio: 1
+Fin: 50
+Realizados: 37,50,16,40,44,36,10
+-------

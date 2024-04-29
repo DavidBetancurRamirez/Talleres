@@ -105,7 +105,7 @@ class GestorPuntos:
             "\t3 valor inicio\n"
             "\t4 valor fin\n"
             "\t5 agregar números realizados\n"
-            "\t6 eliminar número realizado\n"
+            "\t6 eliminar números realizados\n"
             "\t7 recuperar progreso\n"
             "\t0 regresar menu principal\n"
         )
