@@ -3,6 +3,9 @@ App sencilla creada en python con el proposito de gestionar los puntos realizado
 
 Es una interfaz de consola (linux o windows) en la cual se ingresan los números ya realizados o proporciona números aleatorios para hacer dicho numero.
 
+## Libreria externa usada
+
+    pip install colorama
 
 ## Pasos
 1. Se elije si se recupera el progreso de algun taller anteriormente guardado
@@ -10,7 +13,6 @@ Es una interfaz de consola (linux o windows) en la cual se ingresan los números
     1. En caso de que no, se pide el numero inicial y final del taller
 
 2. Se muestra un menu para elegir la opcion deseada.
-
 
 ## Acciones
 #### **Menu principal**
