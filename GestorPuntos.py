@@ -170,6 +170,11 @@ class GestorPuntos:
         self.printColor("\tNUEVO: " + str(nuevo), Colores.FONDO_VERDE)
 
 
+    def nextValue(self, archivo):
+        linea = next(archivo).strip()
+        return linea.split(":")[1].strip()
+
+
     def recover(self):
         self.exitSave("Desea guardar antes de recuperar? (S/N) ")
 
@@ -189,14 +194,14 @@ class GestorPuntos:
                         nombre_taller = linea.split(":")[1].strip()
 
                         if nombre_taller == self.nombre:
-                            linea = next(archivo).strip()
-                            inicio = int(linea.split(":")[1].strip())
+                            value = self.nextValue(archivo)
+                            inicio = int(value) if value else None
 
-                            linea = next(archivo).strip()
-                            fin = int(linea.split(":")[1].strip())
+                            value = self.nextValue(archivo)
+                            fin = int(value) if value else None
 
-                            linea = next(archivo).strip()
-                            realizados = list(map(int, linea.split(":")[1].strip().split(',')))
+                            value = self.nextValue(archivo)
+                            realizados = [int(num) for num in value.split(',') if num.strip()]
 
                             self.nombre = nombre_taller
                             self.inicio = inicio
@@ -271,7 +276,8 @@ class GestorPuntos:
 
 
     def setCantidadPuntos(self):
-        self.cantidad_puntos = (self.fin - self.inicio) + 1
+        if self.inicio and self.fin:
+            self.cantidad_puntos = (self.fin - self.inicio) + 1
 
 
     def setInfo(self, flag=False):
@@ -292,7 +298,8 @@ class GestorPuntos:
         
 
     def setRestantes(self):
-        self.restantes = [num for num in range(self.inicio, self.fin + 1) if not self.search(num)]
+        if self.inicio and self.fin:
+            self.restantes = [num for num in range(self.inicio, self.fin + 1) if not self.search(num)]
 
 
     def start(self):
