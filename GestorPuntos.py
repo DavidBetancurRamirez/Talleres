@@ -24,6 +24,9 @@ class GestorPuntos:
             if numero not in self.realizados:
                 self.realizados.append(numero)
 
+                if self.guardado:
+                    self.guardado = False
+
 
     def clsConsole(self):
         if platform.system() == 'Windows':
@@ -43,6 +46,9 @@ class GestorPuntos:
         for num in numeros:
             if num in self.realizados:
                 self.realizados.remove(num)
+
+                if self.guardado:
+                    self.guardado = False
     
     
     def editInfo(self):
