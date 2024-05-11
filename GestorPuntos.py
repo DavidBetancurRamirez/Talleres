@@ -16,9 +16,9 @@ class GestorPuntos:
 
 
     def add(self):
-        self.printColor("Ingrese los puntos realizados\nSepárelos con coma (, )", Colores.MAGENTA)
+        self.printColor("Ingrese los puntos realizados\nSepárelos con coma (,)", Colores.MAGENTA)
         agregar_realizados = input()
-        numeros = [int(numero.strip()) for numero in agregar_realizados.split(", ")]
+        numeros = [int(numero.strip()) for numero in agregar_realizados.split(",")]
         
         for numero in numeros:
             if numero not in self.realizados:
@@ -36,9 +36,9 @@ class GestorPuntos:
         
         
     def delete(self):
-        self.printColor("Ingrese los que desea eliminar\nSepárelos con coma (, )", Colores.MAGENTA)
+        self.printColor("Ingrese los que desea eliminar\nSepárelos con coma (,)", Colores.MAGENTA)
         agregar_realizados = input()
-        numeros = [int(numero.strip()) for numero in agregar_realizados.split(", ")]
+        numeros = [int(numero.strip()) for numero in agregar_realizados.split(",")]
         
         for num in numeros:
             if num in self.realizados:
