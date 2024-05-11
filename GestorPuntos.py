@@ -345,16 +345,20 @@ class GestorPuntos:
 
 
     def tallerExists(self, path):
+        # Verificar si el taller ya existe en el archivo
         taller_existente = False
 
-        # Verificar si el taller ya existe en el archivo
-        with open(path, 'r') as archivo:
-            for linea in archivo:
-                if linea.strip() == "NombreTaller: {}".format(self.nombre):
-                    taller_existente = True
-                    break
+        try:
+            with open(path, 'r') as archivo:
+                for linea in archivo:
+                    if linea.strip() == "NombreTaller: {}".format(self.nombre):
+                        taller_existente = True
+                        break
 
-            archivo.close()
+                archivo.close()
+        except FileNotFoundError:
+            # Controlar excepcion en caso de que el archivo no exista
+            pass
         
         return taller_existente
     
