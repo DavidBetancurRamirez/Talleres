@@ -224,9 +224,12 @@ class GestorPuntos:
 
         if self.guardado:
             self.printColor("El taller ya esta guardado", Colores.VERDE)
+            return
 
         path = os.path.join('materias', self.materia + '.txt')
         taller_existente = self.tallerExists(path)
+
+        mensaje = ""
 
         if taller_existente:
             # Editar la información del taller existente
@@ -254,7 +257,7 @@ class GestorPuntos:
                         else:
                             archivo.write(linea)
 
-            self.printColor("Información del taller editada correctamente", Colores.VERDE)
+            mensaje = "Información del taller editada correctamente"
 
         else:   
             # Agregar la informacion del taller     
@@ -266,9 +269,13 @@ class GestorPuntos:
                 archivo.write("-------\n")
 
                 archivo.close()
-                self.printColor("Guardado correctamente", Colores.VERDE)
+                mensaje = "Guardado correctamente"
 
         self.guardado = True
+        
+        self.clsConsole()
+        self.printObj()
+        self.printColor(mensaje, Colores.VERDE)
 
     
     def search(self, number):
