@@ -167,7 +167,8 @@ class GestorPuntos:
         self.restantes.remove(nuevo)
         self.guardado = False
 
-        self.printColor("\tNUEVO: " + str(nuevo), Colores.FONDO_VERDE)
+        self.printObj()
+        self.printColor("\n\tNUEVO: " + str(nuevo), Colores.FONDO_VERDE)
 
 
     def nextValue(self, archivo):
