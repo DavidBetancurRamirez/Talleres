@@ -27,6 +27,8 @@ class GestorPuntos:
                 if self.guardado:
                     self.guardado = False
 
+        self.setRestantes()
+
 
     def clsConsole(self):
         if platform.system() == 'Windows':
@@ -49,6 +51,8 @@ class GestorPuntos:
 
                 if self.guardado:
                     self.guardado = False
+                    
+        self.setRestantes()
     
     
     def editInfo(self):
@@ -286,6 +290,7 @@ class GestorPuntos:
     def setCantidadPuntos(self):
         if self.inicio and self.fin:
             self.cantidad_puntos = (self.fin - self.inicio) + 1
+            self.setRestantes()
 
 
     def setInfo(self, flag=False):
